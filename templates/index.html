@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HyDE and RAG App</title>
+    <style>
+      .justified {
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center;">
+      <h1>Hi, this is HyDE</h1>
+
+      <!-- File Upload Form -->
+      <h2>Upload Document</h2>
+      <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">Upload</button>
+      </form>
+
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %}
+
+      {% if error %}
+      <p style="color: red;">{{ error }}</p>
+      {% endif %}
+
+      <!-- Question Form -->
+      <h2>Ask a Question</h2>
+      <form method="POST">
+        <input type="text" name="question" placeholder="Enter your question">
+        <button type="submit">Ask</button>
+      </form>
+
+      {% if question and answer %}
+      <h3>Question</h3>
+      <p class="justified"><strong>{{ question }}</strong></p>
+      <h3>Answer</h3>
+      <p class="justified">{{ answer }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
